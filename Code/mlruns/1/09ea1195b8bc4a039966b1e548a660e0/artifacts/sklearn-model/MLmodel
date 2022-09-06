@@ -1,0 +1,25 @@
+artifact_path: sklearn-model
+flavors:
+  python_function:
+    env: conda.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    python_version: 3.8.0
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 0.23.2
+mlflow_version: 1.26.0
+model_uuid: f1f95f7fbad44ed1bf3865af59eba47b
+run_id: 09ea1195b8bc4a039966b1e548a660e0
+saved_input_example_info:
+  artifact_path: input_example.json
+  format: tf-serving
+  type: ndarray
+signature:
+  inputs: '[{"name": "lat", "type": "double"}, {"name": "lon", "type": "double"},
+    {"name": "minutes_remaining", "type": "long"}, {"name": "period", "type": "long"},
+    {"name": "playoffs", "type": "long"}, {"name": "shot_distance", "type": "long"}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "int32", "shape": [-1]}}]'
+utc_time_created: '2022-09-06 03:45:21.091736'
