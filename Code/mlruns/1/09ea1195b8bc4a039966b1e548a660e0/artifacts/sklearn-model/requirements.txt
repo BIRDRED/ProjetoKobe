@@ -1,4 +1,0 @@
-mlflow
-cloudpickle==2.1.0
-pycaret==2.3.6
-scikit-learn==0.23.2
