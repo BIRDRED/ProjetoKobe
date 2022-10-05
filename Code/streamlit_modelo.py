@@ -11,7 +11,7 @@ savefile = '../Data/model_kobe.pkl'
 print('=> Leitura dos dados')
 df_kobe = pandas.read_csv(fname,sep=',')
 kobe_target_col = 'shot_made_flag'
-kobe_label_map = df_kobe[['lat','lon','minutes_remaining','period','playoffs','shot_distance','shot_made_flag','shot_type']].dropna()
+kobe_label_map = df_kobe[['loc_x', 'loc_y','lat','lon','minutes_remaining','period','playoffs','shot_distance','shot_made_flag','shot_type']].dropna()
 df_kobe = kobe_label_map
 print(df_kobe.head())
 print(df_kobe['shot_type'].value_counts())
@@ -24,7 +24,7 @@ for kobe_type in df_kobe['shot_type'].unique():
     print('\tSeparacao treino/teste')
     kobe = df_kobe.loc[df_kobe['shot_type'] == kobe_type].copy()
     Y = kobe[kobe_target_col]
-    X = kobe.drop([kobe_target_col,'shot_type'], axis=1)
+    X = kobe.drop([kobe_target_col,'shot_type','lat','lon'], axis=1)
     ml_feature = list(X.columns)
     # train/test
     xtrain, xtest, ytrain, ytest = model_selection.train_test_split(X, Y, test_size=0.2,train_size=0.8)
